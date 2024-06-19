@@ -1,15 +1,11 @@
 import express from 'express';
-import 'dotenv/config';
+import { SERVER_PORT } from './constants/env.constant.js';
 const app = express();
-const port = process.env.SERVER_PORT;
 
 app.get('/', (req, res) => {
   res.send('hello world');
 });
 
-app.listen(port, () => {
-  console.log(`서버오픈 ${port} `);
+app.listen(SERVER_PORT, () => {
+  console.log(`서버오픈 ${SERVER_PORT} `);
 });
-
-//
-// 커밋 테스트2
