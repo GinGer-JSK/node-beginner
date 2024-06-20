@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { PRODUCT_STATUS } from '../constants/product.constant.js';
-const procuctSchema = new mongoose.Schema(
+
+const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,

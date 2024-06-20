@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
-import { MONGODB_URL, MONGODB_URL } from '../constants/env.constant';
+import { MONGODB_URL, MONGODB_NAME } from '../constants/env.constant.js';
 
 const connect = () => {
+  // mongoose.connect는 MongoDB 서버에 연결하는 메서드입니다.
   mongoose
     .connect(MONGODB_URL, {
       dbName: MONGODB_NAME,
@@ -14,4 +15,4 @@ mongoose.connection.on('error', (err) => {
   console.error('MongoDB 연결 에러', err);
 });
 
-export default connect;
+export { connect };
