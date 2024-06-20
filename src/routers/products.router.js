@@ -17,17 +17,25 @@ productRouter.post('/products', async (req, res) => {
 });
 
 // 상품 목록 조회 (READ)
-productRouter.get('/products', (req, res) => {
-  // 상품정보 파싱하기
-  // DB에 저장하기
+productRouter.get('/products', async (req, res) => {
+  // DB에서 조회하기
+  const data = await Product.find().sort({ createdAt: 'desc' }).exec();
   // 완료 메세지 반환하기
+  return res
+    .status(200)
+    .json({ status: 200, message: '상품 목록 조회에 성공했습니다.', data });
 });
 
 // 상품 상세 조회 (READ)
-productRouter.get('/products/:id', (req, res) => {
+productRouter.get('/products/:id', async (req, res) => {
   // 상품 ID 파싱하기
+  const { id } = req.params;
   // DB에 불러오기
+  const data = await Product.findById(id).exec();
   // 완료 메세지 반환하기
+  return res
+    .status(200)
+    .json({ status: 200, message: '상품 상세 조회에 성공했습니다.', data });
 });
 
 // 상품 수정 (UPDATE)
