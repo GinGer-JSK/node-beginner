@@ -1,5 +1,6 @@
 import express from 'express';
 import { Product } from '../schemas/product.schema.js';
+import Joi from 'joi';
 const productRouter = express.Router();
 
 // 상품 생성 (CREATE)
